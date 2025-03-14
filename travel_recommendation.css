@@ -1,0 +1,56 @@
+nav {
+    display: flex;
+    align-items: center;
+    background-color:#0073e6;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 40px; /* Adjust logo size */
+    margin-right: 15px;
+}
+
+.nav-title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: auto; /* Push the menu to the right */
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    background-image: url('Exploreworld.png'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Centers vertically */
+    align-items: flex-start; /* Aligns text to the left */
+    padding: 50px; /*
+    color: #003366; /* White text for contrast */
+    text-align: left; /* Ensures text alignment */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
