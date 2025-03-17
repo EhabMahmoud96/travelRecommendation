@@ -38,13 +38,14 @@ function getTravelData(){
                     <p><strong>${country_time}</strong></p>
                     </div>`;
                 });
+                searchBar.value = '';
                 
             }
             
         });
         //search for temples
-        data.temples.forEach(temple => {
-            if(temple.name.toLowerCase().trim().includes(searchQuery)){
+        if (searchQuery === 'temple' || searchQuery === 'temples'){
+            data.temples.forEach(temple => {
                 found = true;
                 resultsDiv.innerHTML += `
                 <div class="temple">
@@ -53,11 +54,13 @@ function getTravelData(){
                 <p>${temple.description}</p>
                 </div>
                 `;
-            }
-        });
-        // Search in beaches 
+            });
+            searchBar.value = '';
+        }
+        
+        // Search in beaches
+        if (searchQuery === 'beach' || searchQuery === 'beaches'){ 
         data.beaches.forEach(beach => {
-            if(beach.name.toLowerCase().includes(searchQuery)){
                 found = true;
                 resultsDiv.innerHTML += `
                 <div class="beach">
@@ -69,10 +72,13 @@ function getTravelData(){
                 </div>
                 `;
             }
-        });
+        );
+        searchBar.value = '';
+    }
         //if nothing is found 
         if(!found){
             resultsDiv.innerHTML = `<h3>No results Found for ${searchQuery}</h3>`;
+            searchBar.value = '';
         }
         divText.appendChild(resultsDiv);
     }
