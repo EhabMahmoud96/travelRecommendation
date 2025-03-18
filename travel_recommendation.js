@@ -20,14 +20,14 @@ function getTravelData(){
          resultsDiv.innerHTML ="";
 
             //serach for countries
+            if(searchQuery === 'countries' || searchQuery === 'country'){
         data.countries.forEach(country => {
-            if(country.name.toLowerCase().trim().includes(searchQuery)) {
-                found = true;
-                
+            let citiesHTML = ''; //store the cities in the country
                 country.cities.forEach(city => {
+                    found = true;
                     const time  = { timeZone: country.timeZone, hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                    const country_time= new Date().toLocaleTimeString('en-US', time);
-                    resultsDiv.innerHTML += `
+                    let country_time = new Date().toLocaleTimeString('en-US', time);
+                    citiesHTML += `
                     <div class="city">
                     <h3>Country: ${country.name}</h3>
                     <h4>City: ${city.name}</h4>
@@ -37,12 +37,15 @@ function getTravelData(){
                     <h4>Current Time in ${city.name}:</h4>
                     <p><strong>${country_time}</strong></p>
                     </div>`;
+                    resultsDiv.innerHTML = citiesHTML;
                 });
-                searchBar.value = '';
+                
                 
             }
             
-        });
+        );
+        searchBar.value="";
+    };
         //search for temples
         if (searchQuery === 'temple' || searchQuery === 'temples'){
             data.temples.forEach(temple => {

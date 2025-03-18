@@ -113,6 +113,17 @@ nav ul li a:hover {
     gap: 20px; /* Adds space between the elements */
     padding: 20px;
 }
+.city:not(:last-child)::after,
+.temple:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px; /* Position the line between items */
+    width: 5px; /* Width of the separator */
+    height: 100%; /* Full height */
+    background-color: #bbb; /* Light gray separator */
+    border-radius: 2px;
+}
 
 .city, .temple, .beach {
     flex: 1; /* Ensures equal width for all items */
@@ -125,17 +136,6 @@ nav ul li a:hover {
     position: relative; /* Needed for separator positioning */
 }
 
-.city:not(:last-child)::after,
-.temple:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -10px; /* Position the line between items */
-    width: 5px; /* Width of the separator */
-    height: 100%; /* Full height */
-    background-color: #bbb; /* Light gray separator */
-    border-radius: 2px;
-}
 
 .city img, .temple img, .beach img {
     display: block;
